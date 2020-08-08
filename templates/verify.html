@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>email verification</title>
+{% endblock %}
+
+{% block body %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div style="text-align: center">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+<h1 style="text-align: center">Emaill verification </h1>
+<div class="form" style="text-align: center">
+    <form action="/verify/{{newuser.id}}" method="POST">
+        <input type="number" name="OTP" placeholder="OTP" required/> <br>
+        <button type="submit">verify</button> 
+</div>
+{% endblock %}
