@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div style="text-align: center">
+                      {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        you have been logged in! 
+
+        <table>
+            <tr>
+                <th>ID </th>
+                <th>username</th>
+                <th>email</th>
+                <th>password</th>
+                <th>actions</th>
+
+            </tr>
+            {% for all_user in all_users%}
+                <tr>
+                    <td>{{all_user.id}}</td>
+                    <td>{{all_user.username}}</td>
+                    <td>{{all_user.email}}</td>
+                    <td>{{all_user.password}}</td>
+                    <td>
+                        <a href="/delete/{{all_user.id}}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <div class="form" style="text-align: center">
+            <form action="/logout" method="POST">
+                <button type="submit" >logout</button> <br>
+                </form>
+        </div>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+</html>

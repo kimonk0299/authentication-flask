@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Welcome page</title>
+{% endblock %}
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div style="text-align: center">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+<h1 style="text-align: center">Welcome page</h1>
+<div class="form" style="text-align: center">
+    <form action="/" method="POST">
+        <input type="email" name="email" placeholder="Email"> <br>
+        <input type="password" name="password" placeholder="your password"> <br>
+        <button type="submit" >Login</button> <br>
+        Dont have an account? 
+        <a href="/signup" >Signup</a> <br>
+        </form>
+</div>
+{% endblock %}
