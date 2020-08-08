@@ -1,5 +1,5 @@
 # authentication-flask
-using FLask framewaork
+using Flask framework
 
 Features: login, signup, email OTP authentication, delete user from database. 
 
